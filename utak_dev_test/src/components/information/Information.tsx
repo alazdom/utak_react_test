@@ -9,13 +9,15 @@ interface IProps {
   item: NewItemType;
   detailsPage?: boolean;
 }
+
 function Information({ item, detailsPage }: IProps) {
-  const [editDescription, setEditDescription] = useState(false);
+  const [editMode, setEditMode] = useState(false);
 
   const navigate = useNavigate();
   return (
     <div className={style.information}>
       <div className={style.imageContainer}>
+        <h3>Name: {item.name}</h3>
         <h3>Price: {item.price}</h3>
       </div>
       <div className={style.description}>
@@ -26,14 +28,14 @@ function Information({ item, detailsPage }: IProps) {
               {item.description}{" "}
               <strong
                 className={style.itemDescription}
-                onClick={() => setEditDescription(!editDescription)}
+                onClick={() => setEditMode(!editMode)}
               >
-                Edit Description
+                Edit Item
               </strong>
-              {editDescription ? (
+              {editMode ? (
                 <Edit
-                  editDescription={editDescription}
-                  setEditDescription={setEditDescription}
+                  editMode={editMode}
+                  setEditMode={setEditMode}
                   id={item.id}
                 />
               ) : null}

@@ -1,30 +1,49 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import style from "./style.module.scss";
-import { updateItemDescription } from "../../lib/controller";
+import { updateItem } from "../../lib/controller";
 
 interface IProps {
-  editDescription: boolean;
-  setEditDescription: React.Dispatch<React.SetStateAction<boolean>>;
+  editMode: boolean;
+  setEditMode: React.Dispatch<React.SetStateAction<boolean>>;
   id?: string;
 }
 
-function Edit({ editDescription, setEditDescription, id }: IProps) {
+function Edit({ editMode, setEditMode, id }: IProps) {
   const [newDescription, setNewDescription] = useState("");
+  const [newName, setNewName] = useState("");
+  const [newPrice, setNewPrice] = useState("");
 
   const navigate = useNavigate();
 
   const handleUpdate = () => {
     //update item
-    updateItemDescription(id, {description: newDescription});
-    setEditDescription(!editDescription);
+    updateItem(id, {description: newDescription, name: newName, price: newPrice});
+    setEditMode(!editMode);
     //navigate to homepage
     navigate('/');
   };
 
   return (
     <div className={style.edit}>
-      <label>Please enter the description below</label>
+      <label>Please update the new details below</label>
+      <label id="name">Item name:</label>
+      <input
+        required
+        name="name"
+        id="name"
+        value={newName}
+        onChange={(e) => setNewName(e.target.value)}
+      />
+      <label id="price">Price:</label>
+      <input
+        required
+        name="price"
+        id="price"
+        value={newPrice}
+        onChange={(e) => setNewPrice(e.target.value)}
+      />
+      <label id="description">Description:</label>
       <textarea
         required
         name="description"

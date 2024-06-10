@@ -23,8 +23,8 @@ export const deleteItem = async (id: string | undefined, navigate: NavigateFunct
     navigate('/')
 }
 
-//Edit document description
-export const updateItemDescription = async (id: string | undefined, docData: any) => {
+//Update item
+export const updateItem = async (id: string | undefined, docData: any) => {
     const getItem = doc(firestore, `items/${id}`)
     await setDoc(getItem, docData, {merge: true})
     console.log("The value has been written on the database");

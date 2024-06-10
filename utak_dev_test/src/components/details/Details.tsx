@@ -35,7 +35,6 @@ function Details() {
   console.log(item, "item");
   if (isLoading) return <div className={style.loading} />;
   return (
-    // <div>Details</div>
     <div className={style.itemDetails}>
       {Object.keys(item) && Object.keys(item).length ? (
         <Information item={item} detailsPage />

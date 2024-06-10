@@ -6,8 +6,8 @@ import { addItem } from '../../lib/controller';
 function Create() {
 
   const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
+  const [description, setDescription] = useState('')
 
   const navigate = useNavigate();
 
@@ -15,8 +15,8 @@ function Create() {
     e.preventDefault();
     addItem({
       name,
-      description,
       price,
+      description,
     })
     console.log('Successfully added a new item');
     navigate('/')
@@ -28,10 +28,10 @@ function Create() {
       <form onSubmit={(e)=> addNewItem(e)}>
         <label>Item Name</label>
         <input type="text" required value={name} onChange={(e)=> setName(e.target.value)}/>
-        <label>Item Description</label>
-        <input type="text" required value={description} onChange={(e)=> setDescription(e.target.value)}/>
         <label>Item Price</label>
-        <input type="text" required value={price} onChange={(e)=> setPrice(e.target.value)}/>
+        <input type="text" required value={price} onChange={(e)=> setDescription(e.target.value)}/>
+        <label>Item Description</label>
+        <input type="text" required value={description} onChange={(e)=> setPrice(e.target.value)}/>
         <button>Add Item</button>
       </form>
     </div>
