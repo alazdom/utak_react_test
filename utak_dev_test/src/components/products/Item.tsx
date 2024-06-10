@@ -3,7 +3,7 @@ import style from "./style.module.scss";
 import { useState, useEffect } from "react";
 import { itemsCollection } from "../../lib/controller";
 import { NewItemType } from "../../types/items";
-import Information from "../details/Information";
+import Information from "../information/Information";
 
 function Item() {
   const [items, setItems] = useState<NewItemType[]>([]);
@@ -20,7 +20,7 @@ function Item() {
       );
     }), []
   );
-  console.log(items, "items");
+
   return (
     <div className={style.item}>
       <h2 className={style.title}>All Items</h2>
