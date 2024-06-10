@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border-bottom: 2px solid rgb(77, 77, 77);
+
+  h1 {
+    color: rgb(77, 77, 77);
+  }
+
+  .links {
+    margin-left: auto;
+    :hover {
+        background-color: rgb(126, 197, 197);
+    }
+  }
+
+  a {
+    margin-left: 16px;
+    text-decoration: none;
+    padding: 6px;
+    border-radius: 8px;
+  }
+}
