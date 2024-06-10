@@ -1,8 +1,9 @@
 import { useState } from "react";
 import style from "./style.module.scss";
 import { NewItemType } from "../../types/items";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Edit from "../edit/Edit";
+import { deleteItem } from "../../lib/controller";
 
 interface IProps {
   item: NewItemType;
@@ -11,6 +12,7 @@ interface IProps {
 function Information({ item, detailsPage }: IProps) {
   const [editDescription, setEditDescription] = useState(false);
 
+  const navigate = useNavigate();
   return (
     <div className={style.information}>
       <div className={style.imageContainer}>
@@ -20,19 +22,25 @@ function Information({ item, detailsPage }: IProps) {
         <hr />
         {detailsPage ? (
           <>
-          <p>
-            {item.description}{" "}
-            <strong
-              className={style.itemDescription}
-              onClick={() => setEditDescription(!editDescription)}
-            >
-              Edit Description
-            </strong>
-            {editDescription ? (
-              <Edit editDescription={editDescription} setEditDescription={setEditDescription}/>
-            ): null}
-          </p>
-          <button>Delete Item</button>
+            <p>
+              {item.description}{" "}
+              <strong
+                className={style.itemDescription}
+                onClick={() => setEditDescription(!editDescription)}
+              >
+                Edit Description
+              </strong>
+              {editDescription ? (
+                <Edit
+                  editDescription={editDescription}
+                  setEditDescription={setEditDescription}
+                  id={item.id}
+                />
+              ) : null}
+            </p>
+            <button onClick={() => deleteItem(item.id, navigate)}>
+              Delete Item
+            </button>
           </>
         ) : (
           <Link to={`/items/${item.id}`}>

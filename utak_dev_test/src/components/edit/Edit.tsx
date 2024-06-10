@@ -1,17 +1,25 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import style from "./style.module.scss";
+import { updateItemDescription } from "../../lib/controller";
 
 interface IProps {
   editDescription: boolean;
   setEditDescription: React.Dispatch<React.SetStateAction<boolean>>;
+  id?: string;
 }
 
-function Edit({ editDescription, setEditDescription }: IProps) {
+function Edit({ editDescription, setEditDescription, id }: IProps) {
   const [newDescription, setNewDescription] = useState("");
+
+  const navigate = useNavigate();
+
   const handleUpdate = () => {
     //update item
+    updateItemDescription(id, {description: newDescription});
     setEditDescription(!editDescription);
     //navigate to homepage
+    navigate('/');
   };
 
   return (
@@ -24,7 +32,7 @@ function Edit({ editDescription, setEditDescription }: IProps) {
         value={newDescription}
         onChange={(e) => setNewDescription(e.target.value)}
       ></textarea>
-      <button className={style.updateButton} onClick={() => handleUpdate}>
+      <button className={style.updateButton} onClick={() => handleUpdate()}>
         Update Item
       </button>
     </div>
