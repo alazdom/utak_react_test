@@ -1,36 +1,57 @@
+$primary-color: #3498db;
+$secondary-color: #2c3e50;
+$white-color: #ecf0f1;
+$grey-color: #bdc3c7;
+$dark-grey-color: #7f8c8d;
+
+$spacing-unit: 16px;
+
 .create {
-    max-width: 400px;
-    margin: 0 auto;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-unit;
+
+  h2 {
+    color: $primary-color;
+    margin-bottom: $spacing-unit;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
 
     label {
-        text-align: left;
-        display: block;
+      color: $secondary-color;
+      margin-bottom: $spacing-unit / 2;
     }
 
-    h2 {
-        font-size: 20px;
-        color: rgb(77, 77, 77);
-        margin-bottom: 30px;
-    }
+    input {
+      padding: $spacing-unit / 2;
+      margin-bottom: $spacing-unit;
+      border: 1px solid $grey-color;
+      border-radius: 4px;
 
-    input,
-    textarea,
-    select {
-        width: 100%;
-        padding: 6px 10px;
-        margin: 10px 0;
-        border: 1px solid #ddd;
-        box-sizing: border-box;
-        display: block;
+      &:focus {
+        border-color: $primary-color;
+        outline: none;
+      }
     }
 
     button {
-        background: rgb(77, 77, 77);
-        color: #fff;
-        border: 0;
-        padding: 8px;
-        border-radius: 8px;
-        cursor: pointer;
+      padding: $spacing-unit / 2;
+      border: none;
+      border-radius: 4px;
+      background-color: $primary-color;
+      color: $white-color;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
     }
+  }
 }
