@@ -29,9 +29,9 @@ function Create() {
         <label>Item Name</label>
         <input type="text" required value={name} onChange={(e)=> setName(e.target.value)}/>
         <label>Item Price</label>
-        <input type="text" required value={price} onChange={(e)=> setDescription(e.target.value)}/>
+        <input type="text" required value={price} onChange={(e)=> setPrice(e.target.value)}/>
         <label>Item Description</label>
-        <input type="text" required value={description} onChange={(e)=> setPrice(e.target.value)}/>
+        <input type="text" required value={description} onChange={(e)=> setDescription(e.target.value)}/>
         <button>Add Item</button>
       </form>
     </div>

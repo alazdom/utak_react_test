@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
     <nav className={style.navbar}>
-      <h1>Dashboard</h1>
+      <h1>Simple Crud Menu</h1>
       <div className={style.links}>
         <Link
           to="/"
