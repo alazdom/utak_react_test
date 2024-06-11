@@ -22,10 +22,11 @@ function Item() {
   );
 
   return (
-    <div className={style.item}>
-      <h2 className={style.title}>All Items</h2>
+    <div className={style.itemContainer}>
+      <p className={style.allItem}>All Items</p>
+      <div className={style.itemMap}>
       {items && items.length ? (
-        <div>
+        <div className={style.title}>
           {
             items?.map((item)=>(
               <Information key={item.id} item={item} />
@@ -33,10 +34,11 @@ function Item() {
           }
         </div>
       ) : (
-        <h2 className="no-items">
+        <h2 className={style.title}>
           There are no items. Please add one
         </h2>
       )}
+      </div>
     </div>
   );
 }

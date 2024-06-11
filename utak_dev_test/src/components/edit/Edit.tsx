@@ -13,15 +13,23 @@ function Edit({ editMode, setEditMode, id }: IProps) {
   const [newDescription, setNewDescription] = useState("");
   const [newName, setNewName] = useState("");
   const [newPrice, setNewPrice] = useState("");
+  const [newCategory, setNewCategory] = useState("");
+  const [newStock, setNewStock] = useState("");
 
   const navigate = useNavigate();
 
   const handleUpdate = () => {
     //update item
-    updateItem(id, {description: newDescription, name: newName, price: newPrice});
+    updateItem(id, {
+      description: newDescription,
+      name: newName,
+      price: newPrice,
+      stock: newStock,
+      category: newCategory,
+    });
     setEditMode(!editMode);
     //navigate to homepage
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -42,6 +50,22 @@ function Edit({ editMode, setEditMode, id }: IProps) {
         id="price"
         value={newPrice}
         onChange={(e) => setNewPrice(e.target.value)}
+      />
+      <label id="stock">Stock:</label>
+      <input
+        required
+        name="stock"
+        id="stock"
+        value={newStock}
+        onChange={(e) => setNewStock(e.target.value)}
+      />
+      <label id="category">Category:</label>
+      <input
+        required
+        name="category"
+        id="category"
+        value={newCategory}
+        onChange={(e) => setNewCategory(e.target.value)}
       />
       <label id="description">Description:</label>
       <textarea

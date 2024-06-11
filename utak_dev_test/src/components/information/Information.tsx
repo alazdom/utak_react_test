@@ -21,14 +21,13 @@ function Information({ item, detailsPage }: IProps) {
         <h3>Name: {item.name}</h3>
       </div>
       <div className={style.description}>
-        <hr />
         {detailsPage ? (
           <>
             <ul>
-              <li>Description: {item.description}</li>
-              <li>Category: {item.category}</li>
-              <li>Stock: {item.stock}</li>
               <li>Price: {item.price}</li>
+              <li>Stock: {item.stock}</li>
+              <li>Category: {item.category}</li>
+              <li>Description: {item.description}</li>
             </ul>
             <div className={style.buttonContainer}>
               <button

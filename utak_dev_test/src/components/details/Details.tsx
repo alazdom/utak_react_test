@@ -32,7 +32,6 @@ function Details() {
     fetchItemData();
   }, []);
 
-  console.log(item, "item");
   if (isLoading) return <div className={style.loading} />;
   return (
     <div className={style.itemDetails}>
