@@ -28,6 +28,7 @@ function Information({ item, detailsPage }: IProps) {
               <li>Stock: {item.stock}</li>
               <li>Category: {item.category}</li>
               <li>Description: {item.description}</li>
+              <li>Total Cost: {item.price * item.stock}</li>
             </ul>
             <div className={style.buttonContainer}>
               <button
