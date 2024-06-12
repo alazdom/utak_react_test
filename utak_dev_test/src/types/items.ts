@@ -2,15 +2,15 @@ export interface NewItemType {
     id?: string;
     name?: string;
     category?: string;
-    stock?: number;
+    stock?: string;
     description?: string;
-    price?: number;
+    price?: string;
 }
 
 export interface AddItemType {
     name?: string;
     category?: string;
-    stock?: number;
+    stock?: string;
     description?: string;
-    price?: number;
+    price?: string;
 }
