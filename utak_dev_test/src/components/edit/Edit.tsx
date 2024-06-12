@@ -33,7 +33,7 @@ function Edit({ editMode, setEditMode, id }: IProps) {
   };
 
   return (
-    <div className={style.edit}>
+    <dialog className={style.edit}>
       <label>Please update the new details below</label>
       <label id="name">Item name:</label>
       <input
@@ -78,7 +78,7 @@ function Edit({ editMode, setEditMode, id }: IProps) {
       <button className={style.updateButton} onClick={() => handleUpdate()}>
         Update Item
       </button>
-    </div>
+    </dialog>
   );
 }
 
